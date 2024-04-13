@@ -6,6 +6,9 @@ from confluent_kafka.schema_registry.json_schema import JSONDeserializer
 from src.entity.generic import Generic
 from src.kafka_config import sasl_conf
 from src.database.mongodb import MongodbOperation
+from dotenv import load_dotenv
+
+
 
 
 
@@ -22,7 +25,8 @@ def consumer_using_sample_file(topic,file_path):
 
     consumer = Consumer(consumer_conf)
     consumer.subscribe([topic])
-
+    # Load environment variables from .env file
+    load_dotenv()
     mongodb = MongodbOperation()
     records = []
     x = 0
@@ -36,11 +40,10 @@ def consumer_using_sample_file(topic,file_path):
             record: Generic = json_deserializer(msg.value(), SerializationContext(msg.topic(), MessageField.VALUE))
 
             # mongodb.insert(collection_name="car",record=car.record)
-
             if record is not None:
                 records.append(record.to_dict())
                 if x % 5000 == 0:
-                    mongodb.insert_many(collection_name="car", records=records)
+                    mongodb.insert_many(collection_name="kafka_sensor", records=records)
                     records = []
             x = x + 1
         except KeyboardInterrupt:

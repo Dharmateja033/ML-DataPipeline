@@ -30,6 +30,7 @@ from confluent_kafka.schema_registry.json_schema import JSONSerializer
 import pandas as pd
 from typing import List
 from src.entity.generic import Generic, instance_to_dict
+from dotenv import load_dotenv
 
 FILE_PATH = "/home/avnish/iNeuron_Private_Intelligence_Limited/industry_ready_project/projects/data_pipeline/kafka-sensor/sample_data/sensor/aps_failure_training_set1.csv"
 
@@ -68,6 +69,7 @@ def delivery_report(err, msg):
 def product_data_using_file(topic,file_path):
     logging.info(f"Topic: {topic} file_path:{file_path}")
     schema_str = Generic.get_schema_to_produce_consume_data(file_path=file_path)
+    load_dotenv()
     schema_registry_conf = schema_config()
     schema_registry_client = SchemaRegistryClient(schema_registry_conf)
     string_serializer = StringSerializer('utf_8')
@@ -87,7 +89,7 @@ def product_data_using_file(topic,file_path):
                              value=json_serializer(instance, SerializationContext(topic, MessageField.VALUE)),
                              on_delivery=delivery_report)
             print("\nFlushing records...")
-            producer.flush()
+            #producer.flush()
     except KeyboardInterrupt:
         pass
     except ValueError:
