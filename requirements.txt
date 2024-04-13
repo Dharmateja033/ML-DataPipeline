@@ -2,6 +2,7 @@ confluent-kafka
 requests
 six
 pandas
+numpy
 pymongo[srv]
 jsonschema
 dnspython
