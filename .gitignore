@@ -9,11 +9,6 @@ Credential.md
 cenv/
 assignment/
 Assignment.md
-<<<<<<< HEAD
-
-=======
-=======
->>>>>>> 435d408dcf000de506510863475c8a2c894beeb6
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -175,5 +170,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Assignment
-assignment /
+# Assignments
+assignment/*
+Assignment.md
