@@ -8,6 +8,8 @@ logs/*
 *.pyc
 Credential.md
 cenv/
+assignment/
+
 =======
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -170,3 +172,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 >>>>>>> 3e2ec9a84159c8c11791d34f11e32c4b5c8a3947
+
+# Assignment
+assignment /
