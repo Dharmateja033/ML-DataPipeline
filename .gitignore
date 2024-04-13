@@ -8,6 +8,7 @@ logs/*
 *.pyc
 Credential.md
 cenv/
+assignment/
 =======
 # Byte-compiled / optimized / DLL files
 __pycache__/
