@@ -8,7 +8,11 @@ logs/*
 Credential.md
 cenv/
 assignment/
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> 435d408dcf000de506510863475c8a2c894beeb6
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
